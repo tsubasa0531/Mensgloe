@@ -13,7 +13,7 @@
     　<div class='posts'>
     　    <div class='post'>
     　        <h2 class='title'>review,category</h2>
-    　        <p class='body'>skin care  </p>
+    　        <p class='body'>(skin care)( base makeup)(uv care)(hair care)  </p>
     　    </div>
 <form method="GET" action="{{ route('products.index') }}">
     <input type="search" placeholder="製品名を入力"name="search" value="@if (isset($search)) {{ $search }} @endif">
@@ -31,28 +31,6 @@
         {{ $product->name }}
     </a>
     @endforeach
-    extends('layouts.app')
-
-@section('content')
-    <div class="container">
-        <h3>レビューを投稿する</h3>
-        <form method="POST" action="{{ route('reviews.store') }}">
-            @csrf
-
-            <div class="form-group">
-                <label for="title">タイトル</label>
-                <input type="text" name="title" id="title" class="form-control" required>
-            </div>
-
-            <div class="form-group">
-                <label for="body">本文</label>
-                <textarea name="body" id="body" class="form-control" rows="4" required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">投稿する</button>
-        </form>
-    </div>
-@endsection
  @foreach($reviews as $review)  
     @if (auth()->check())
    <form method="post"
