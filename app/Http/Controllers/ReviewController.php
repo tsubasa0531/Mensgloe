@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Review;
 
 class ReviewController extends Controller
 {
     public function index()
-    {
+    {  
         $reviews = Review::all();
         return view('reviews.index', compact('reviews'));
     }
@@ -30,5 +31,10 @@ class ReviewController extends Controller
     public function show(Review $review)
     {
         return view('reviews.show', compact('review'));
+    }
+    public function showReviewPage()
+    {  
+      return view('review');
+        
     }
 }
