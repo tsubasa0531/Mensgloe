@@ -12,7 +12,7 @@ class review extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
+    
     }
     use HasFactory;
 }

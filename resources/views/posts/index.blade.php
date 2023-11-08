@@ -10,6 +10,7 @@
     </head>
     <body>
     <h1>Menscosmetics</h1>
+    <a href='/posts/create'><button>クチコミへ</button></a>
     　<div class='posts'>
     　    <div class='post'>
     　        <h2 class='title'>review,category</h2>
