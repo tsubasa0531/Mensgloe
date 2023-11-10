@@ -13,17 +13,19 @@
                @csrf
                <div class="製品名">
                    <h2>製品名</h2>
-                   <input type="text" name="post[製品名]" placeholder="製品名を入力してください"/>
+                   <input type="text" name="post[title]" placeholder="製品名を入力してください">
+                   <p class="title_error" style="color:red">{{ $errors->first('post.title') }}</p>
                </div>
                <div class='製品のクチコミ'></div>
                <h2>製品クチコミ</h2>
-               <textarea name="post[製品クチコミ]" placeholder="製品をクチコミしてください"></textarea>
+               <textarea name="post[body]" placeholder="製品をクチコミしてください"></textarea>
+               <p class="body_error" style="color:red">{{ $errors->first('post.body') }}</p>
                <div>
                    <input type="submit" value="store"/>
                </div>
            </form>
-           <div class="footer">
-               <a href="/">戻る</a>
+           <div class="back">
+               <a href="/">back</a>
            </div>
              extends('layouts.app')
 

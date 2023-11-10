@@ -10,11 +10,16 @@
     </head>
     <body>
     <h1>Menscosmetics</h1>
-    <a href='/posts/create'><button>クチコミへ</button></a>
+    <a href='/posts/create'><button>クチコミ投稿</button></a>
+    <a href='/posts/create'><button>ランキング</button></a>
+    <a href='/posts/create'><button>おすすめ製品一覧</button></a><br>
+    <a href='/posts/create'><button>美容トレンド情報</button>
+    <a href='/posts/create'><button>アイテム</button></a>
+    <a href='/posts/create'><button>クチコミ閲覧</button></a>
+    </a>
     　<div class='posts'>
     　    <div class='post'>
-    　        <h2 class='title'>review,category</h2>
-    　        <p class='body'>(skin care)( base makeup)(uv care)(hair care)  </p>
+    　       <p1>製品検索</p1>
     　    </div>
 <form method="GET" action="{{ route('products.index') }}">
     <input type="search" placeholder="製品名を入力"name="search" value="@if (isset($search)) {{ $search }} @endif">
@@ -42,8 +47,8 @@
            いいね </button>
    </form>
 @else
-    <span>{{ $review->likes->count() }}
-    いいね </span>
+    
+   
  @endif
  @endforeach
     　</div>
