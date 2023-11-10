@@ -10,5 +10,9 @@ class Post extends Model
 {
     return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
 }
+protected $fillable = [
+    '製品名',
+    '製品のクチコミ',
+    ];
     use HasFactory;
 }

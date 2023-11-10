@@ -19,13 +19,12 @@ use App\Http\Controllers\ReviewController;
 |
 */
 
-
+Route::get('/posts/create', [PostController::class, 'create']);
 Route::get('/', [PostController::class, 'index']);
 Route::get('/posts/{post}', [PostController::class ,'show'])->name('products.show');
 Route::get('/product', [ProductController::class, 'index'])->name('products.index');
-Route::post('/like/{review}','LikeController@toggleLike')->name('like.toggle');
 Route::get('/protected-route','SomeController@index')->middleware('auth');
 Route::resource('reviews', 'ReviewController');
 Route::get('/review', function () { return view('review');})->name('review');
 Route::get('/review' ,[ReviewController::class, 'showReviewPage'])->name('review');
-Route::get('/posts/create', [PostController::class, 'create']);
+Route::post('/posts', [PostController::class, 'store']);
