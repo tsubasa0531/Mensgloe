@@ -6,14 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Http\Controllers\ProductController;
+use App\Http\Requests\ProductRequest;
+use App\Models\Review;
 
 class ProductController extends Controller
-{
-
-    //
-    public function index(Request $request,Product $product)
+{public function index(Request $request,Product $product)
     { 
-        
+        $products = Product::orderBy('rating', 'desc')->get();
         
         $search = $request->input('search');
         
@@ -30,10 +29,26 @@ class ProductController extends Controller
             $product　= $query->paginate(20);
 
         }
-        return view('posts.index')
-            ->with([
-                'products' => $product,
-                'search' => $search,
-            ]);
+            return view('products.index')
+            ->with(['products'=>$product]);
     }
+public function create()
+    {
+        return view('products.create');
+    }
+
+    public function store(Product $product, ProductRequest $request)
+    {
+        $input = $request['product'];
+        $product->fill($input)->save();
+        return redirect('/products/' . $product->id);
+          $product->save();
+
+
+        return view('products.show');
+}
+   public function show(Product $product)
+   {
+      return view('products/show')->with(['product' => $product]);
+   }
 }

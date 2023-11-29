@@ -13,6 +13,7 @@ class Post extends Model
 protected $fillable = [
     '製品名',
     '製品のクチコミ',
+    '製品の値段'
     ];
     use HasFactory;
 }

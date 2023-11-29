@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Review;
+use App\Models\Review;
 
 class ReviewController extends Controller
 {
+        public function create()
+{
+    return view('reviews.create');
+}
     public function index()
     {  
         $reviews = Review::all();
@@ -26,7 +30,7 @@ class ReviewController extends Controller
             $review->body = $validatedData['body'];
             $review->save();
             
-            return redirect()->route('review.index');
+            return redirect()->route('reviews.index');
     }
     public function show(Review $review)
     {

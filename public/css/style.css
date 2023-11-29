@@ -1,7 +1,37 @@
 body {
-  background-color: #4169e1;
+  background-image: url('/images/image4.jpeg');
+  background-repeat: no-repeat;
+  background-size: 1440px 850px;
+  font-family: sans-serif;
+  text-shadow: 1px 2px 3px blue;
+  letter-spacing: 30px;
+  max-width: 800px;
+  margin: 50px 200px;
+  padding: 150px;
+  box-shadow: 0 0 1000px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease-in-out;
+  
 }
 
 h1, p ,h2 {
   color: black;
+  font-style: oblique;
+  
+}
+
+.nav-button {
+  width: 130px;
+  height: 50px;
+}
+.nav-container{
+  width: 650px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-button2{
+  width: 400px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
 }
