@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProductController;
 use APP\Http\Controllers\LikeController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\RankingController;
 
 
 /*
@@ -18,13 +18,11 @@ use App\Http\Controllers\ReviewController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/posts/create', [PostController::class, 'create']);
-Route::get('/', [PostController::class, 'index']);
-Route::get('/posts/{post}', [PostController::class ,'show'])->name('products.show');
-Route::get('/product', [ProductController::class, 'index'])->name('products.index');
-Route::get('/protected-route','SomeController@index')->middleware('auth');
-Route::resource('reviews', 'ReviewController');
-Route::get('/review', function () { return view('review');})->name('review');
-Route::get('/review' ,[ReviewController::class, 'showReviewPage'])->name('review');
-Route::post('/posts', [PostController::class, 'store']);
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::get('/', [ProductController::class, 'index']);
+Route::get('/reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
+Route::post('/reviews/store', [ReviewController::class, 'store'])->name('reviews.store');
+Route::get('/products/show', [ProductController::class, 'show'])->name('products.show');
+Route::get('/Products/{product}', [ProductController::class , 'show']);
