@@ -11,10 +11,7 @@ class ProductRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return false;
-    }
+   
 
     /**
      * Get the validation rules that apply to the request.
@@ -25,7 +22,7 @@ class ProductRequest extends FormRequest
     {
          return [
             'product.name' => 'required|string|max:100',
-            'product.description' => 'required|string|max:4000',
+            'product.body' => 'required|string|max:4000',
             'product.price' => 'required|string|max:100',
             //
         ];

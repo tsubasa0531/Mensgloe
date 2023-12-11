@@ -26,29 +26,29 @@ class ProductController extends Controller
             foreach($wordArraySearched as $value) {
                 $query->where('name', 'like', '%'.$value.'%');
             }
-            $product　= $query->paginate(20);
+            $products　= $query->paginate(20);
 
         }
-            return view('products.index')
-            ->with(['products'=>$product]);
+          return view('products.index')->with(['products' => $product->getPaginateByLimit()]);
     }
 public function create()
     {
         return view('products.create');
     }
 
-    public function store(Product $product, ProductRequest $request)
-    {
+    public function store(Product $product, Request $request)
+    {  
         $input = $request['product'];
         $product->fill($input)->save();
         return redirect('/products/' . $product->id);
-          $product->save();
-
-
-        return view('products.show');
-}
+    }
    public function show(Product $product)
    {
-      return view('products/show')->with(['product' => $product]);
+      return view('products.show')->with(['product' => $product]);
+   }
+   public function showProducts()
+   {
+       $products = Product::all();
+       return view('products.create',['products' => $products]);
    }
 }

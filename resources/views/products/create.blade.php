@@ -10,24 +10,24 @@
        <body>
           <!-- resources/views/products/create.blade.php -->
 
-<form action="{{ route('products.store') }}" method="POST">
+<form action="/products" method="POST">
     @csrf
-
+    <h1>製品登録</h1>
     <div>
         <label for="name">製品名</label>
-        <input type="text" name="product[製品名]" placeholder="製品名を入力" value="{{ old('product.name') }}"/>
+        <input type="text" name="product[name]" placeholder="製品名を入力" value="{{ old('product.name') }}"/>
         <p class="name_error" style="color:red">{{ $errors->first('product.name') }}</p>
     </div>
 
     <div>
-        <label for="description">製品説明</label>
-         <textarea name="product[製品説明]" placeholder="製品の説明を入力してください。">{{ old('product.descriptiony') }}</textarea>
-                <p class="description__error" style="color:red">{{ $errors->first('product.description') }}</p>
+        <label for="body">製品説明</label>
+         <textarea name="product[body]" placeholder="製品の説明を入力してください。">{{ old('product.body') }}</textarea>
+                <p class="body__error" style="color:red">{{ $errors->first('product.body') }}</p>
     </div>
 
     <div>
         <label for="price">価格</label>
-        <input type="number" name="product[製品価格]" placeholder="製品の価格を入力してください" value="{{ old('product.price') }}"/>
+        <input type="number" name="product[price]" placeholder="製品の価格を入力してください" value="{{ old('product.price') }}"/>
                 <p class="price__error" style="color:red">{{ $errors->first('product.price') }}</p>
     </div>
 

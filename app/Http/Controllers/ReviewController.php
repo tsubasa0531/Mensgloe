@@ -17,7 +17,7 @@ class ReviewController extends Controller
         return view('reviews.index', compact('reviews'));
     }
     //
-    public function store(Request $request)
+    public function store(Request $request, $productId)
     {
         $validatedData = $request->validate([
             'title' => 'required|max:255',
