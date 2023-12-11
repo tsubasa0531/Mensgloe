@@ -14,8 +14,11 @@ body {
 }
 
 h1, p ,h2 {
-  color: black;
+  color: blue;
+  background: pink;
   font-style: oblique;
+  font-size: medium;
+  display: block;
   
 }
 

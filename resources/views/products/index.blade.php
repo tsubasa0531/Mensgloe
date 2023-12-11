@@ -13,16 +13,25 @@
     <div class="nav-container">
     <a href='/products/create'><button  class="nav-button">製品投稿</button></a>
     <a href='/reviews/create'><button class="nav-button">クチコミ投稿</button></a>
-    <a href='/products/osusume'><button class="nav-button">おすすめ製品一覧</button></a>
+    <a href='/osusumes/index'><button class="nav-button">おすすめ製品一覧</button></a>
     </div>
     <div class="nav-container">
-    <a href='/products/create'><button class="nav-button">美容トレンド情報</button></a>
+    <a href='/beautys/index'><button class="nav-button">美容トレンド情報</button></a>
     <a href='/products/show'><button class="nav-button">お気に入り登録</button></a>
-    <a href='/products/show'><button class="nav-button">クチコミ閲覧&評価</button></a>
+    <a href='/reviews/create'><button class="nav-button">クチコミ閲覧&評価</button></a>
     </div>
-    <h2 class='title'>
-        <a href="/products/{{ $products->id }}">{{ $products->title }}</a>
-    </h2>
+        <div class='products'>
+            @foreach ($products as $product)
+                <div class='product'>
+                    <h2 class='name'>{{ $product->title }}</h2>
+                    <p class='body'>{{ $product->body }}</p>
+                    <p class='price'>{{ $product->price }}</p>
+                </div>
+            @endforeach
+        </div>
+        <div class='paginate'>
+            {{ $products->links() }}
+        </div>
     <div class="image">
          </div>
     　<div class='posts'>

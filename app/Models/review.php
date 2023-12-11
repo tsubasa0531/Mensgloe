@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class review extends Model
 {
     protected $table = 'reviews';
-    public function review()
+    public function product()
     {
-        return $this->hasMany(Review::class);
+        return $this->belongsTo(Product::class);
     }
-    protected $fillable = ['user_id', 'title', 'body'];
+    protected $fillable = ['rating', 'comment', 'product_id'];
     
     public function user()
     {
